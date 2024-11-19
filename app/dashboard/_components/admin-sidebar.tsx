@@ -8,14 +8,19 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { House, LayoutGrid } from "lucide-react";
+import { House, LayoutGrid, Dog } from "lucide-react";
 import { LogOutBtn } from "@/components/auth/log-out-btn";
 
 const items = [
   {
-    url: "/",
+    url: "/dashboard",
     icon: House,
     label: "Home",
+  },
+  {
+    url: "/dashboard/pets",
+    icon: Dog,
+    label: "Pets",
   },
   {
     url: "/dashboard/categories",
@@ -28,7 +33,7 @@ export function AdminSidebar() {
   return (
     <Sidebar>
       <div>
-        <h1 className="text-lg font-bold">PetShop Dashboard</h1>
+        <h1 className="text-lg font-bold text-center p-5">PetShop Dashboard</h1>
       </div>
       <SidebarContent>
         <SidebarGroup>

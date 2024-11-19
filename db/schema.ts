@@ -243,6 +243,8 @@ export const orders = pgTable("orders", {
   updatedAt: timestamp("updated_at").defaultNow(),
 });
 
+// Schemas
+
 export const createUserSchema = z.object({
   name: z.string().min(3, "O nome deve conter no mínimo 3 caracteres"),
   email: z.string(),
@@ -260,3 +262,4 @@ export const loginUserSchema = z.object({
 
 export const insertProdcutSchema = createInsertSchema(products);
 export const insertCategorySchema = createInsertSchema(categories);
+export const insertPetSchema = createInsertSchema(pets);
