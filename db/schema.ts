@@ -257,3 +257,6 @@ export const loginUserSchema = z.object({
   email: z.string(),
   password: z.string(),
 });
+
+export const insertProdcutSchema = createInsertSchema(products);
+export const insertCategorySchema = createInsertSchema(categories);
