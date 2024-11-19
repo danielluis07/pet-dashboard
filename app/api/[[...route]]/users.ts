@@ -9,7 +9,7 @@ const app = new Hono().get("/", async (c) => {
     return c.json({ error: "No users found" }, 404);
   }
 
-  return c.json(data);
+  return c.json({ data });
 });
 
 export default app;

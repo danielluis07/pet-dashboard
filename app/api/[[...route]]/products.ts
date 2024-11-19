@@ -11,7 +11,7 @@ const app = new Hono()
       return c.json({ error: "No products found" }, 404);
     }
 
-    return c.json(data);
+    return c.json({ data });
   })
   .post(
     "/",
@@ -36,7 +36,7 @@ const app = new Hono()
 
       const [data] = await db.insert(products).values(values).returning();
 
-      return c.json(data);
+      return c.json({ data });
     }
   );
 

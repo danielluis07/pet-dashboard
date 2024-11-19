@@ -1,9 +1,7 @@
+import { CategoriesClient } from "./_components/categories-client";
+
 const CategoriesPage = () => {
-  return (
-    <div>
-      <p>categories</p>
-    </div>
-  );
+  return <CategoriesClient />;
 };
 
 export default CategoriesPage;

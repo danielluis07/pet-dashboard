@@ -8,34 +8,19 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { Calendar, House, MessageCircle, UserPen, Users } from "lucide-react";
+import { House, LayoutGrid } from "lucide-react";
 import { LogOutBtn } from "@/components/auth/log-out-btn";
 
 const items = [
   {
     url: "/",
     icon: House,
-    label: "Início",
+    label: "Home",
   },
   {
-    url: "/dashboard/doctor/profile",
-    icon: UserPen,
-    label: "Meu Perfil",
-  },
-  {
-    url: "/dashboard/doctor/availability",
-    icon: Calendar,
-    label: "Minhas Datas",
-  },
-  {
-    url: "/dashboard/doctor/appointments",
-    icon: Users,
-    label: "Minhas Consultas",
-  },
-  {
-    url: "/dashboard/doctor/comments",
-    icon: MessageCircle,
-    label: "Comentários",
+    url: "/dashboard/categories",
+    icon: LayoutGrid,
+    label: "Categories",
   },
 ];
 
