@@ -8,6 +8,48 @@
       "when": 1731959373244,
       "tag": "0000_far_harry_osborn",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1732051828635,
+      "tag": "0001_icy_jackal",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1732058688887,
+      "tag": "0002_famous_shadowcat",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1732065477406,
+      "tag": "0003_cuddly_goblin_queen",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1732098730473,
+      "tag": "0004_spotty_mesmero",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1732124148013,
+      "tag": "0005_curved_scream",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1732143531059,
+      "tag": "0006_jittery_stardust",
+      "breakpoints": true
     }
   ]
 }

@@ -178,12 +178,20 @@ export const products = pgTable("products", {
     .$defaultFn(() => crypto.randomUUID()),
   name: text("name").notNull(),
   description: text("description"),
-  price: decimal("price", { precision: 10, scale: 2 }).notNull(),
-  petId: text("pet_id").references(() => pets.id),
-  categoryId: text("category_id").references(() => categories.id),
-  stock: integer("stock").default(0),
+  price: integer("price").notNull(),
+  petId: text("pet_id")
+    .notNull()
+    .references(() => pets.id),
+  categoryId: text("category_id")
+    .notNull()
+    .references(() => categories.id),
+  stock: integer("stock").default(0).notNull(),
+  slug: text("slug").notNull().unique(),
+  isNew: boolean("is_new").default(false),
+  isFeatured: boolean("is_featured").default(false),
   imageUrl: text("image_url"),
   createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
 });
 
 export const shippingMethods = pgTable("shipping_methods", {
@@ -216,7 +224,7 @@ export const orders = pgTable("orders", {
     .primaryKey()
     .$defaultFn(() => crypto.randomUUID()),
   number: serial("number").notNull(),
-  totalPrice: decimal("total_price", { precision: 10, scale: 2 }).notNull(),
+  totalPrice: integer("total_price").notNull(),
   userId: text("user_id")
     .notNull()
     .references(() => users.id),

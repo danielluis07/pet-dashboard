@@ -55,7 +55,7 @@ export const PetsCellAction = ({ id }: PetsCellActionProps) => {
             disabled={deleteMutation.isPending}
             className="cursor-pointer"
             onClick={onDelete}>
-            <Trash2 className="mr-2 size-5 text-red-500" />
+            <Trash2 className="text-red-500" />
             Deletar
           </DropdownMenuItem>
         </DropdownMenuContent>

@@ -100,7 +100,7 @@ const app = new Hono()
       const [data] = await db
         .update(categories)
         .set(values)
-        .where(and(eq(categories.id, id)))
+        .where(eq(categories.id, id))
         .returning();
 
       if (!data) {

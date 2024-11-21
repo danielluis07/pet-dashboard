@@ -19,8 +19,8 @@ export const UploadImage = ({ onChange, image }: UploadImageProps) => {
     <div>
       <UploadButton
         className={cn(
-          image !== null && "pointer-events-none opacity-30",
-          "ut-button:w-56 ut-allowed-content:hidden pb-2"
+          image !== "" && "pointer-events-none opacity-30",
+          "ut-button:w-56 ut-button:bg-primary ut-button:focus-within:ring-primary ut-button:ut-uploading:bg-slate-700 ut-allowed-content:hidden ut-button:ut-readying:bg-slate-700 pb-2"
         )}
         endpoint="imageUploader"
         content={{
@@ -30,9 +30,7 @@ export const UploadImage = ({ onChange, image }: UploadImageProps) => {
                 <div className="flex items-center gap-x-1">
                   <Image className="text-lg" />
                   <p className="text-sm">
-                    {image !== null
-                      ? "Imagem selecionada"
-                      : "Insira uma imagem"}
+                    {image !== "" ? "Imagem selecionada" : "Insira uma imagem"}
                   </p>
                 </div>
               );

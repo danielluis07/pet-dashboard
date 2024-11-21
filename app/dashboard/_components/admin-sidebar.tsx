@@ -8,7 +8,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { House, LayoutGrid, Dog } from "lucide-react";
+import { House, LayoutGrid, Dog, Tag } from "lucide-react";
 import { LogOutBtn } from "@/components/auth/log-out-btn";
 
 const items = [
@@ -26,6 +26,11 @@ const items = [
     url: "/dashboard/categories",
     icon: LayoutGrid,
     label: "Categories",
+  },
+  {
+    url: "/dashboard/products",
+    icon: Tag,
+    label: "Products",
   },
 ];
 

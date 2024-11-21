@@ -1,19 +1,19 @@
 "use client";
 
-import { useGetCategories } from "@/queries/categories/use-get-categories";
-import { CategoriesDataTable } from "./categories-table";
-import { columns } from "./categories-columns";
+import { ProductsDataTable } from "./products-table";
+import { columns } from "./products-columns";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card } from "@/components/ui/card";
-import { useDeleteCategories } from "@/queries/categories/use-delete-categories";
+import { useGetProducts } from "@/queries/products/use-get-products";
+import { useDeleteProducts } from "@/queries/products/use-delete-products";
 
-export const CategoriesClient = () => {
-  const categoriesQuery = useGetCategories();
-  const categories = categoriesQuery.data || [];
-  const deleteCategories = useDeleteCategories();
-  const disabled = deleteCategories.isPending;
+export const ProductsClient = () => {
+  const productsQuery = useGetProducts();
+  const products = productsQuery.data || [];
+  const deleteProducts = useDeleteProducts();
+  const disabled = deleteProducts.isPending;
 
-  if (categoriesQuery.isLoading) {
+  if (productsQuery.isLoading) {
     return (
       <Card className="size-full px-2 pt-2">
         <div className="space-y-3">
@@ -59,13 +59,13 @@ export const CategoriesClient = () => {
   return (
     <Card className="size-full px-2 pt-2">
       <h1 className="text-xl font-bold">Categorias</h1>
-      <CategoriesDataTable
+      <ProductsDataTable
         columns={columns}
-        data={categories}
+        data={products}
         disabled={disabled}
         onDelete={(row) => {
           const ids = row.map((r) => r.original.id);
-          deleteCategories.mutate({ ids });
+          deleteProducts.mutate({ ids });
         }}
         searchKey="name"
       />

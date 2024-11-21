@@ -20,7 +20,7 @@ export const PetsClient = () => {
           <Skeleton className="w-32 h-5" />
           <Skeleton className="w-[420px] h-12" />
         </div>
-        <div className="mt-8 border border-gray-300 rounded-lg p-3">
+        <div className="mt-8 rounded-lg p-3">
           <div className="flex border-b pb-2">
             <Skeleton className="size-5 rounded-md" />
             <Skeleton className="w-24 h-5 ml-32" />

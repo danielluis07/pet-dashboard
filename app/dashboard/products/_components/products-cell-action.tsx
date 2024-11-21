@@ -11,18 +11,19 @@ import { useConfirm } from "@/hooks/use-confirm";
 import { Pencil, Trash2 } from "lucide-react";
 import { Ellipsis } from "lucide-react";
 import { useOpenCategory } from "@/hooks/use-open-category";
-import { useDeleteCategory } from "@/queries/categories/use-delete-category";
+import { useDeleteProduct } from "@/queries/products/use-delete-product";
+import { useRouter } from "next/navigation";
 
-interface CategoriesCellActionProps {
+interface ProductsCellActionProps {
   id: string;
 }
-export const CategoriesCellAction = ({ id }: CategoriesCellActionProps) => {
-  const deleteMutation = useDeleteCategory(id);
-  const { onOpen } = useOpenCategory();
+export const ProductsCellAction = ({ id }: ProductsCellActionProps) => {
+  const deleteMutation = useDeleteProduct(id);
+  const router = useRouter();
 
   const [ConfirmDialog, confirm] = useConfirm(
     "Tem certeza?",
-    "Você está prestes a deletar a categoria selecionada"
+    "Você está prestes a deletar o produto selecionado"
   );
 
   const onDelete = async () => {
@@ -47,7 +48,7 @@ export const CategoriesCellAction = ({ id }: CategoriesCellActionProps) => {
           <DropdownMenuItem
             disabled={deleteMutation.isPending}
             className="cursor-pointer"
-            onClick={() => onOpen(id)}>
+            onClick={() => router.push(`/dashboard/products/${id}`)}>
             <Pencil />
             Editar
           </DropdownMenuItem>
