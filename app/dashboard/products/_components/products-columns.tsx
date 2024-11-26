@@ -1,5 +1,3 @@
-"use client";
-
 import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "@/components/ui/checkbox";
 import { InferResponseType } from "hono";
@@ -20,7 +18,7 @@ const formatCurrency = (value: string | number) => {
     currency: "BRL",
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
-  }).format(numericValue / 100); // Divide by 100 if input is an integer
+  }).format(numericValue / 100);
 
   return formattedValue;
 };
@@ -49,17 +47,18 @@ export const columns: ColumnDef<ResponseType>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: "name",
+    accessorFn: (row) => row.product.name, // Custom accessor for nested data
+    id: "name", // Use an explicit `id` for column reference
     header: "Nome",
   },
   {
-    accessorKey: "price",
+    accessorFn: (row) => row.product.price, // Custom accessor
+    id: "price", // Explicit ID for referencing
     header: "Preço",
-    cell: ({ row }) => formatCurrency(row.original.price.toString()),
+    cell: ({ row }) => formatCurrency(row.original.product.price.toString()),
   },
-
   {
     id: "actions",
-    cell: ({ row }) => <ProductsCellAction id={row.original.id} />,
+    cell: ({ row }) => <ProductsCellAction id={row.original.product.id} />,
   },
 ];

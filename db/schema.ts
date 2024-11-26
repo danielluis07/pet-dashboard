@@ -170,6 +170,7 @@ export const categories = pgTable("categories", {
     .primaryKey()
     .$defaultFn(() => crypto.randomUUID()),
   name: text("name").notNull().unique(),
+  image: text("image"),
 });
 
 export const products = pgTable("products", {

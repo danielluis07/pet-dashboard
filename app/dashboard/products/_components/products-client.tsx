@@ -13,6 +13,8 @@ export const ProductsClient = () => {
   const deleteProducts = useDeleteProducts();
   const disabled = deleteProducts.isPending;
 
+  console.log(products);
+
   if (productsQuery.isLoading) {
     return (
       <Card className="size-full px-2 pt-2">
@@ -58,13 +60,13 @@ export const ProductsClient = () => {
 
   return (
     <Card className="size-full px-2 pt-2">
-      <h1 className="text-xl font-bold">Categorias</h1>
+      <h1 className="text-xl font-bold">Produtos</h1>
       <ProductsDataTable
         columns={columns}
         data={products}
         disabled={disabled}
         onDelete={(row) => {
-          const ids = row.map((r) => r.original.id);
+          const ids = row.map((r) => r.original.product.id);
           deleteProducts.mutate({ ids });
         }}
         searchKey="name"

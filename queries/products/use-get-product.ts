@@ -6,7 +6,7 @@ export const useGetProduct = (id?: string) => {
     enabled: !!id, // the query will only be executed if we have the id
     queryKey: ["product", { id }],
     queryFn: async () => {
-      const res = await client.api.products[":id"].$get({
+      const res = await client.api.products["only-product"][":id"].$get({
         param: { id },
       });
 
